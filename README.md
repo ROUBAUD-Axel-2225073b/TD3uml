@@ -2,6 +2,7 @@
 
 ```mermaid
 classDiagram
+
   class Article
   class Livre
   class CD
@@ -22,6 +23,24 @@ classDiagram
   Personne o-- Mariage
   Document o-- Imprimante
 
+  // Cardinalités
   Client "0..1" o-- CompagnieAerienne
   CompagnieAerienne "0..1" o-- Vol
+
+  // Contraintes d'intégrité
+  Article.nom .unique
+  Client.carteDeCrédit .unique
+  Personne.nom .unique
+
+  partition "1" {
+    Article <|-- Livre
+    Article <|-- CD
+    Client o-- CompagnieAerienne
+    CompagnieAerienne o-- Vol
+  }
+
+  partition "0..n" {
+    Personne o-- Mariage
+  }
+
 ```
