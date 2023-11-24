@@ -17,7 +17,13 @@ classDiagram
   Article <|-- CD
   Client o-- Article
   CompagnieAerienne o-- Vol
+  CompagnieAerienne o-- Client
   Personne o-- Mariage
   Personne o-- Mariage
   Document o-- Imprimante
+
+  // Cardinalités
+  Client "0..1" o-- CompagnieAerienne
+  CompagnieAerienne "0..1" o-- Vol
+
 ```
