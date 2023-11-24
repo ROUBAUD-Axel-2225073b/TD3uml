@@ -1,6 +1,6 @@
 # TD3uml 
 
-##EXO 1
+## EXO 1
 ```mermaid
 classDiagram
   class Article
@@ -45,4 +45,4 @@ classDiagram
  Imprimante "O..n" o-- Document
 ```
 
-##EXO 2
+## EXO 2
