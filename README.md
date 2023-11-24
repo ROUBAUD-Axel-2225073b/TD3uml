@@ -6,16 +6,21 @@ classDiagram
   class Livre
   class CD
   class Client
+  Class Commande
   Article <|-- Livre
   Article <|-- CD
-  Client o-- Article
+  
+  Client "0..n" o-- Commande
+  Commande "0..1" o-- Article
 ```
 
 ```mermaid
 classDiagram
   class CompagnieAerienne
   class Vol
-  CompagnieAerienne o-- Vol
+  class Client
+Client "0..n" o-- CompagnieAerienne
+  CompagnieAerienne "0..1" o-- Vol
 ```
 
 
