@@ -46,3 +46,58 @@ classDiagram
 ```
 
 ## EXO 2
+
+```mermaid
+classDiagram
+    class RailwaySystem {
+        - railways: list<Railway>
+        + addRailway(): void
+        + addStation(): void
+    }
+
+    class Train {
+        - origin: Station
+        - destination: Station
+        - currentStation: Station
+        - isMoving: boolean
+        + startJourney(): void
+        + stopJourney(): void
+    }
+
+    class Station {
+        - name: String
+        - sensors: list<Sensor>
+        + addSensor(): void
+        + getName(): String
+        + addTrain(): void
+    }
+
+    class Railway {
+        - stations: list<Station>
+        - barriers: list<Barrier>
+        + addStation(): void
+        + addBarrier(): void
+        + openBarrier(): void
+        + closeBarrier(): void
+    }
+
+    class Barrier {
+        - isOpen: boolean
+        - sensor: Sensor
+        + open(): void
+        + close(): void
+    }
+
+    class Sensor {
+        // properties of the sensor
+    }
+
+    RailwaySystem --> Train
+    RailwaySystem --> Station
+    Train --> Station
+    Station --> Sensor
+    Station --> Train
+    Railway --> Station
+    Railway --> Barrier
+    Barrier --> Sensor
+```
