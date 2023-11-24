@@ -1,14 +1,37 @@
 # TD3uml
 
 ```mermaid
-sequenceDiagram
-participant "Adherent" as A
-participant "Bibliotheque" as B
-
-A -> B : emprunter("Livre 1")
-B -> A : "Livre 1" emprunté
-A -> B : restituer("Livre 1")
-B -> A : "Livre 1" restitué
-
-
+classDiagram
+  class Article
+  class Livre
+  class CD
+  class Client
+  Article <|-- Livre
+  Article <|-- CD
+  Client o-- Article
 ```
+
+```mermaid
+classDiagram
+  class CompagnieAerienne
+  class Vol
+  CompagnieAerienne o-- Vol
+```
+
+
+```mermaid
+classDiagram
+  class Personne
+  class Mariage
+  Personne o-- Mariage
+  Personne o-- Mariage
+```
+
+```mermaid
+classDiagram
+  class Document
+  class Imprimante
+  Document o-- Imprimante
+```
+
+
