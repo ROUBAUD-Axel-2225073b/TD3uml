@@ -1,5 +1,6 @@
-# TD3uml
+# TD3uml 
 
+##EXO 1
 ```mermaid
 classDiagram
   class Article
@@ -43,3 +44,5 @@ classDiagram
   Document "O..1" o-- Imprimante
  Imprimante "O..n" o-- Document
 ```
+
+##EXO 2
