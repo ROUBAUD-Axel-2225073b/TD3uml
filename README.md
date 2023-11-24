@@ -19,22 +19,26 @@ classDiagram
   class CompagnieAerienne
   class Vol
   class Client
-Client "0..n" o-- CompagnieAerienne
+
+  Client "0..n" o-- CompagnieAerienne
   CompagnieAerienne "0..1" o-- Vol
 ```
 
 
 ```mermaid
-classDiagram
+  classDiagram
   class Personne
+  class Justice
   class Mariage
-  Personne o-- Mariage
-  Personne o-- Mariage
+
+  Personne "0..1" o-- Justice
+  Justice "0..2" o-- Mariage
 ```
 
 ```mermaid
 classDiagram
   class Document
   class Imprimante
-  Document o-- Imprimante
+  Document "O..N" o-- Imprimante
+ Imprimante "O..1" o-- Document
 ```
