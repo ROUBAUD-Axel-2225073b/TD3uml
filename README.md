@@ -62,14 +62,17 @@ classDiagram
         - isMoving: boolean
         + startJourney(): void
         + stopJourney(): void
+        + move(): void
+        // Add other attributes specific to trains
     }
 
     class Station {
         - name: String
         - sensors: list<Sensor>
+        - trains: list<Train>
         + addSensor(): void
         + getName(): String
-        + addTrain(): void
+        + addTrain(train: Train): void
     }
 
     class Railway {
@@ -92,12 +95,16 @@ classDiagram
         // properties of the sensor
     }
 
-    RailwaySystem --> Train
+    RailwaySystem --> Railway
     RailwaySystem --> Station
-    Train --> Station
-    Station --> Sensor
-    Station --> Train
-    Railway --> Station
-    Railway --> Barrier
+    Train --> Station: origin
+    Train --> Station: destination
+    Train --> Station: currentStation
+    Train --> Barrier
+    Station --> Sensor: 0..*
+    Station --> Train: 0..*
+    Railway --> Station: 2..*
+    Railway --> Barrier: 0..*
     Barrier --> Sensor
+
 ```
