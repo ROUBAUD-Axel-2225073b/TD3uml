@@ -22,7 +22,4 @@ classDiagram
   Personne o-- Mariage
   Document o-- Imprimante
 
-  Client "0..1" o-- CompagnieAerienne
-  CompagnieAerienne "0..1" o-- Vol
-
 ```
