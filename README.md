@@ -39,6 +39,7 @@ classDiagram
 classDiagram
   class Document
   class Imprimante
-  Document "O..N" o-- Imprimante
+
+  Document "O..n" o-- Imprimante
  Imprimante "O..1" o-- Document
 ```
