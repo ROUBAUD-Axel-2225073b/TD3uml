@@ -114,44 +114,47 @@ classDiagram
 
 classDiagram
   class Player {
-    - playerId: int
-    - username: string
-    - email: string
-    - friends: List<Player>
-    + buyEquipment(equipment: Equipment): void
-    + startGame(characters: List<Character>): void
-    + leaveGame(): void
-    + retrieveEmail(): string
-  }
+    
+playerId: int
+username: string
+email: string
+friends: List<Player>
+transactions: List<Transaction>
++ buyEquipment(equipment: Equipment): void+ startGame(characters: List<Character>): void+ leaveGame(): void+ getEmail(): string
+}
 
   class Equipment {
-    - equipmentId: int
-    - name: string
-    - price: float
-  }
+    
+equipmentId: int
+name: string
+price: float
+}
 
   class Character {
-    - characterId: int
-    - name: string
-    - type: string
-  }
+    
+characterId: int
+name: string
+type: string
+}
 
   class Game {
-    - gameId: int
-    - date: Date
-    - duration: int
-    + updateScore(player: Player, score: int): void
-  }
+    
+gameId: int
+date: Date
+duration: int
++ updateScore(player: Player, score: int): void
+}
 
   class Transaction {
-    - transactionId: int
-    - date: Date
-    - amount: float
-  }
+    
+transactionId: int
+date: Date
+amount: float
+}
 
   class Moderator {
     + creditPlayer(player: Player, amount: float): void
-    + retrievePlayerEmail(player: Player): string
+    + getPlayerEmail(player: Player): string
   }
 
   Player --|> Transaction
@@ -160,7 +163,6 @@ classDiagram
   Player --|> Moderator
   Player *-- friends: Player
   Player --> Equipment: has
-  Player --> Transaction: makes
   Game --> Player: players
   Game --> Character: characters
   Game --> Transaction: transactions
