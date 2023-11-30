@@ -107,4 +107,63 @@ classDiagram
     Railway --> Barrier: 0..*
     Barrier --> Sensor
 
+````
+## TD6
+
+```mermaid
+
+classDiagram
+  class Player {
+    - playerId: int
+    - username: string
+    - email: string
+    - friends: List<Player>
+    + buyEquipment(equipment: Equipment): void
+    + startGame(characters: List<Character>): void
+    + leaveGame(): void
+    + retrieveEmail(): string
+  }
+
+  class Equipment {
+    - equipmentId: int
+    - name: string
+    - price: float
+  }
+
+  class Character {
+    - characterId: int
+    - name: string
+    - type: string
+  }
+
+  class Game {
+    - gameId: int
+    - date: Date
+    - duration: int
+    + updateScore(player: Player, score: int): void
+  }
+
+  class Transaction {
+    - transactionId: int
+    - date: Date
+    - amount: float
+  }
+
+  class Moderator {
+    + creditPlayer(player: Player, amount: float): void
+    + retrievePlayerEmail(player: Player): string
+  }
+
+  Player --|> Transaction
+  Player --|> Character
+  Player --|> Game
+  Player --|> Moderator
+  Player *-- friends: Player
+  Player --> Equipment: has
+  Player --> Transaction: makes
+  Game --> Player: players
+  Game --> Character: characters
+  Game --> Transaction: transactions
+  Moderator --> Player: interacts with
+
 ```
